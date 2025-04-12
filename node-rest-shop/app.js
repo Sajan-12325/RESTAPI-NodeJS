@@ -5,7 +5,15 @@ const bodyParser = require('body-parser')
 
 const productRoutes = require('./API/routes/products');
 const orderRoutes = require('./API/routes/order');
+const { default: mongoose } = require('mongoose');
 
+
+
+mongoose.connect(
+    `mongodb+srv://Sajan-12325:${encodeURIComponent(process.env.MONGO_ATLAS_PW)}@node-rest-shop.5kssaqk.mongodb.net/?retryWrites=true&w=majority&appName=node-rest-shop`,
+    
+  );
+  
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
